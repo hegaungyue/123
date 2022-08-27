@@ -130,6 +130,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     love_date = date(love_year, love_month, love_day)
     # 获取在一起的日期差
     love_days = str(today.__sub__(love_date)).split(" ")[0]
+    tongyong = '我滴可爱子公主早安呀！'
     # 获取所有生日数据
     birthdays = {}
     for k, v in config.items():
@@ -141,6 +142,11 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         "url": "http://weixin.qq.com/download",
         "topcolor": "#FF0000",
         "data": {
+            "tongyong": {
+                "value": tongyong,
+                "color": get_color()
+            },
+         
             "date": {
                 "value": "{} {}".format(today, week),
                 "color": get_color()
